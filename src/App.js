@@ -1,17 +1,23 @@
 import { useState } from 'react';
 import './App.css';
-import ClassComponent from './components/ClassComponent';
-import FunctionalComponent from './components/FunctionalComponent';
+import ClassComponent from './pages/ClassComponent';
+import FunctionalComponent from './pages/FunctionalComponent';
+import {Routes, Route} from 'react-router-dom';
+// import BaseHoc from './hoc/BaseHoc';
 
 function App() {
   const [name, setName] = useState("Soniya");
 
   return (
     <div className="App">
-          <h1>Class Component</h1>
-          <ClassComponent></ClassComponent>
-          <h1>Functional Component</h1>
+      <Routes>
+        <Route path='/functional-component' element={
           <FunctionalComponent  name={name} setName={setName} age={23}/>
+        } />
+
+        <Route path='/class-component' element={  <ClassComponent /> } />
+      </Routes>
+          
     </div>
   );
 }
